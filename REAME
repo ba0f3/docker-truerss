@@ -1,0 +1,21 @@
+mkdir -p /data/truerss/plugins
+
+/data/truerss/truerss.config
+
+truerss {
+  port = 8000
+  host = 0.0.0.0
+  wsPort = 8080
+  update-parallelism = 10
+  db {
+    backend = sqlite
+    port = ""
+    host = ""
+    dbname = "/root/.truerss/truerss.db"
+    username = ""
+    password = ""
+  }
+  plugins = {}
+}
+
+docker run -d --name some-truerss -v /data/truerss:/root/.truerss -p 8000:8000 -p 8080:8080 truerss
